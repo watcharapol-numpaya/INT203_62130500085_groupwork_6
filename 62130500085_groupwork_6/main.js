@@ -1,12 +1,17 @@
 const constraints = {
     firstname: {
         presence: true,
+
+
     },
     lastname: {
         presence: true,
     },
     password: {
         presence: true,
+        length: {
+            minimum: 6,
+        }
     },
     gender: {
         presence: true,
@@ -57,10 +62,12 @@ const app = Vue.createApp({
 
                 },
                 constraints)
+ 
             if (this.errors) {
+                console.log(this.errors)
                 e.preventDefault();
             } else {
-alert("Register complete");
+                alert("Register complete");
 
             }
         }
